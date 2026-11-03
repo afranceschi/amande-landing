@@ -1,0 +1,23 @@
+FOTOGRAFÍAS DE AMANDE
+Ya hay fotos tomadas de la tienda viva (www.amandesub.com.ar / CDN Tienda Nube), en WebP:
+- personalizados.webp
+- home.webp
+- herramientas.webp
+- empresas.webp
+- reposteria.webp
+- juegos.webp
+- flow.webp
+- cutter.webp
+- encuadernacion.webp
+- hero.webp (imagen principal del inicio)
+- proceso.webp (sección Así trabajamos)
+- og-share.webp (1200x630, preview social)
+
+Si falta una foto, la web conserva la ilustración SVG de referencia.
+Para reemplazar: usá el mismo nombre de archivo. Ideal ~1000x1000 px y < 200 KB (las actuales son 640x640 del CDN).
+
+LOGO / FAVICON (integrados)
+- isologo.png / isologo.webp — isologo sin fondo, trazo aqua + punto dorado; cabecera y footer
+- isologo-original-teal-bg.png — original con fondo aqua (referencia)
+- favicon.png / favicon-32.png — favicon e Apple touch icon
+- logo-amande*.png/webp — lockups anteriores de la tienda (referencia; ya no se usan en la landing)
