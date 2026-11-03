@@ -56,14 +56,12 @@ B. Redirect SEO → shop:
 ================================================================================
 4) CHECKLIST PENDIENTE (acciones manuales)
 ================================================================================
-[ ] DNS apex: amandesub.com.ar debe resolver y 301 → https://www.amandesub.com.ar/
-[ ] Redeploy tras .assetsignore; confirmar 404 en /.git/config y /wrangler.jsonc
-[ ] Tienda Nube: dominio primario = shop.amandesub.com.ar
-    (canonicals/schema/menú NO deben apuntar categorías a www; sí podés
-     linkear el sitio institucional www a propósito)
-[ ] Google Search Console: verificar www (+ shop), enviar sitemap.xml,
-    pedir indexación de las 7 URLs; monitorear 404 viejos → deben ser 301
-[ ] GA4: pegar Measurement ID en assets/analytics-config.js y redeploy
+[x] DNS apex: amandesub.com.ar 301 → https://www.amandesub.com.ar/
+[x] .assetsignore: /.git/config y /wrangler.jsonc responden 404
+[x] Tienda Nube: dominio primario = shop.amandesub.com.ar
+[x] Google Search Console: sitemap Correcto, 7 páginas descubiertas
+[x] GA4: Measurement ID G-JMX0SYK9G8 en assets/analytics-config.js
+    → falta redeploy a prod + verificar Tiempo real en GA4
 
 ================================================================================
 5) GOOGLE SEARCH CONSOLE
@@ -85,11 +83,10 @@ B. Redirect SEO → shop:
 ================================================================================
 7) GOOGLE ANALYTICS 4
 ================================================================================
-1. Creá GA4 y copiá el Measurement ID (G-XXXXXXXXXX).
-2. Editá assets/analytics-config.js:
-     window.AMANDE_GA4_ID = "G-ABC123XYZ";
-3. Eventos: cta_shop y cta_whatsapp (clicks a shop / wa.me).
-   Pendiente mientras el ID esté vacío.
+1. Propiedad GA4 activa; Measurement ID: G-JMX0SYK9G8
+2. Configurado en assets/analytics-config.js
+3. Eventos: cta_shop y cta_whatsapp (clicks a shop / wa.me)
+4. Verificación: GA4 → Informes → Tiempo real (tras redeploy)
 
 ================================================================================
 8) REDES (recomendado)
