@@ -123,14 +123,12 @@ img{max-width:100%;height:auto}
 .benefit h3{margin:0 0 10px;font-size:17px}
 .benefit p{margin:0;font-size:14px;color:var(--muted)}
 .cta-band{margin:50px 0 20px}
-.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
 .contact-card{background:#fff;border:1px solid var(--border);border-radius:22px;padding:28px}
 .contact-card h2{margin:0 0 14px;font-size:22px}
 .contact-card p,.contact-card li{font-size:14px;color:var(--muted)}
 .contact-card ul{list-style:none;padding:0;margin:18px 0}
 .contact-card li{margin:12px 0}
 .contact-card a{color:var(--link);font-weight:700}
-.map-embed{border:0;border-radius:18px;width:100%;min-height:280px;background:#e8eeeb}
 :focus-visible{outline:3px solid #127e7a;outline-offset:4px}
 .skip-link{position:fixed;z-index:200;top:-60px;left:16px;padding:12px 18px;border-radius:10px;background:#fff;color:#263a3a;box-shadow:0 6px 25px #0002}
 .skip-link:focus{top:12px}
@@ -142,7 +140,6 @@ section[id]{scroll-margin-top:105px}
   .nav-links{gap:14px}
   .benefit-grid{grid-template-columns:1fr 1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
-  .contact-grid{grid-template-columns:1fr}
 }
 @media(max-width:900px){
   .nav-links a:not(.btn){display:none}

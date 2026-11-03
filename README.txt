@@ -73,12 +73,11 @@ C. Probá un redirect viejo → shop, por ejemplo:
    - cta_whatsapp (enlaces a wa.me)
 
 ================================================================================
-6) GOOGLE BUSINESS PROFILE + REDES (recomendado)
+6) REDES (recomendado)
 ================================================================================
-- Creá/reclamá el perfil con NAP idéntico al schema:
-  AMANDE · Victorica 253, El Palomar, Morón, Buenos Aires
-  Tel: +54 11 2507-8414 · amande.subli@gmail.com
-- Categorías sugeridas: tienda de regalos / servicio de impresión
+- AMANDE no tiene local físico de atención al público: no publiques dirección
+  en Google Business Profile ni en redes.
+- Contacto público: WhatsApp +54 11 2507-8414 · amande.subli@gmail.com
 - Instagram bio → https://www.amandesub.com.ar/ (no solo shop)
 
 ================================================================================
@@ -90,7 +89,7 @@ C. Probá un redirect viejo → shop, por ejemplo:
 /regalos-empresas/             B2B / merchandising (CTA WhatsApp)
 /personaliza-tu-producto/      Recupera URL indexada + embudo a shop
 /nosotros/                     Confianza (ex /mas/quienes-somos1/)
-/contacto/                     NAP + mapa (recupera URL indexada)
+/contacto/                     Contacto online (recupera URL indexada)
 
 Compras: shop.amandesub.com.ar
 Consultas a medida / empresas: WhatsApp +54 11 2507-8414
@@ -102,5 +101,4 @@ Consultas a medida / empresas: WhatsApp +54 11 2507-8414
 - Rutas relativas (assets/... y ../assets/...) para que funcione al abrir
   index.html en el navegador o con: python3 -m http.server
 - No se incluyen precios (los administra Tienda Nube).
-- Código postal 1684 usado en schema LocalBusiness (El Palomar); si tu CP
-  exacto es otro, actualizalo en el JSON-LD de todas las páginas.
+- Schema: Organization (online), sin dirección de calle. áreaServida: Buenos Aires / Argentina.
