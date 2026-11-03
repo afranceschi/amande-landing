@@ -1,0 +1,11 @@
+{
+  "name": "amande-landing",
+  "compatibility_date": "2026-11-03",
+  "preview_urls": true,
+  "assets": {
+    "directory": "./",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "previews": {}
+}
