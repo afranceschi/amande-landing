@@ -99,6 +99,8 @@ Consultas a medida / empresas: WhatsApp +54 11 2507-8414
 8) NOTAS
 ================================================================================
 - HTML/CSS/JS sin build. CSS: assets/site.css · JS: assets/site.js
+- Rutas relativas (assets/... y ../assets/...) para que funcione al abrir
+  index.html en el navegador o con: python3 -m http.server
 - No se incluyen precios (los administra Tienda Nube).
 - Código postal 1684 usado en schema LocalBusiness (El Palomar); si tu CP
   exacto es otro, actualizalo en el JSON-LD de todas las páginas.
