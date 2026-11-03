@@ -1,0 +1,49 @@
+# AMANDE — redirects SEO (Cloudflare Workers static assets)
+# www institucional; shop = Tienda Nube
+# Rutas institucionales (/, /contacto/, /regalos-*, etc.) NO se listan: se sirven como assets.
+
+# Quiénes somos (URLs viejas indexadas)
+/mas/quienes-somos1 /nosotros/ 301
+/mas/quienes-somos1/ /nosotros/ 301
+/quienes-somos /nosotros/ 301
+/quienes-somos/ /nosotros/ 301
+
+# Productos → shop
+/productos/* https://shop.amandesub.com.ar/productos/:splat 301
+
+# Categorías / colecciones conocidas → shop
+/hogar-y-deco https://shop.amandesub.com.ar/hogar-y-deco/ 301
+/hogar-y-deco/* https://shop.amandesub.com.ar/hogar-y-deco/:splat 301
+/herramientas https://shop.amandesub.com.ar/herramientas/ 301
+/herramientas/* https://shop.amandesub.com.ar/herramientas/:splat 301
+/reposteria1 https://shop.amandesub.com.ar/reposteria1/ 301
+/reposteria1/* https://shop.amandesub.com.ar/reposteria1/:splat 301
+/juegos https://shop.amandesub.com.ar/juegos/ 301
+/juegos/* https://shop.amandesub.com.ar/juegos/:splat 301
+/bazar https://shop.amandesub.com.ar/bazar/ 301
+/bazar/* https://shop.amandesub.com.ar/bazar/:splat 301
+/indumentaria https://shop.amandesub.com.ar/indumentaria/ 301
+/indumentaria/* https://shop.amandesub.com.ar/indumentaria/:splat 301
+/personajes https://shop.amandesub.com.ar/personajes/ 301
+/personajes/* https://shop.amandesub.com.ar/personajes/:splat 301
+/llaveros https://shop.amandesub.com.ar/llaveros/ 301
+/llaveros/* https://shop.amandesub.com.ar/llaveros/:splat 301
+/cortantes-para-galletitas https://shop.amandesub.com.ar/cortantes-para-galletitas/ 301
+/cortantes-para-galletitas/* https://shop.amandesub.com.ar/cortantes-para-galletitas/:splat 301
+/fechas-especiales https://shop.amandesub.com.ar/fechas-especiales/ 301
+/fechas-especiales/* https://shop.amandesub.com.ar/fechas-especiales/:splat 301
+/deco-hogar https://shop.amandesub.com.ar/deco-hogar/ 301
+/deco-hogar/* https://shop.amandesub.com.ar/deco-hogar/:splat 301
+
+# Cuenta / carrito / checkout / búsqueda → shop
+/cuenta https://shop.amandesub.com.ar/cuenta/ 301
+/cuenta/* https://shop.amandesub.com.ar/cuenta/:splat 301
+/carrito https://shop.amandesub.com.ar/carrito/ 301
+/carrito/* https://shop.amandesub.com.ar/carrito/:splat 301
+/checkout https://shop.amandesub.com.ar/checkout/ 301
+/checkout/* https://shop.amandesub.com.ar/checkout/:splat 301
+/buscar https://shop.amandesub.com.ar/buscar/ 301
+/buscar/* https://shop.amandesub.com.ar/buscar/:splat 301
+/politicas-de/* https://shop.amandesub.com.ar/politicas-de/:splat 301
+/como-comprar https://shop.amandesub.com.ar/como-comprar/ 301
+/como-comprar/ https://shop.amandesub.com.ar/como-comprar/ 301

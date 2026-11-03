@@ -2,90 +2,90 @@ AMANDE — Sitio institucional SEO (HTML estático)
 
 DOMINIO PRINCIPAL: https://www.amandesub.com.ar
 TIENDA: https://shop.amandesub.com.ar
+HOSTING: Cloudflare Workers (static assets)
 BRANCH DE TRABAJO: seo/conversion-multipage
 
 ================================================================================
-1) QUÉ SUBIR AL HOSTING (raíz pública: public_html / www)
+1) CLOUDFLARE WORKERS — CONFIG DEL REPO
 ================================================================================
-- index.html
-- .htaccess
-- robots.txt
-- sitemap.xml
-- assets/  (completa)
-- Carpetas con su index.html:
-  regalos-personalizados/
-  impresion-3d/
-  regalos-empresas/
-  personaliza-tu-producto/
-  nosotros/
-  contacto/
+Archivos clave:
+- wrangler.jsonc     → Worker estático + bloque "previews" (requerido por CI)
+- _redirects         → 301 SEO (productos/categorías viejas → shop)
+- robots.txt, sitemap.xml, index.html, assets/, páginas */
 
-IMPORTANTE: subí también el archivo .htaccess (a veces el FTP lo oculta).
+No hay build step: assets.directory = "./" (raíz del repo).
+
+Workers Builds (recomendado):
+- Deploy command:  npx wrangler deploy
+- Preview command: npx wrangler preview
+- El error "missing previews block" se resuelve con "previews": {} en wrangler.jsonc.
+
+Local:
+  npx wrangler deploy          # producción (requiere auth)
+  npx wrangler preview         # preview de la branch
+  python3 -m http.server       # solo vista local sin redirects CF
 
 ================================================================================
-2) DESPUÉS DE SUBIR — VERIFICACIONES TÉCNICAS
+2) DNS / DOMINIO (dashboard Cloudflare)
+================================================================================
+- Custom domain del Worker: www.amandesub.com.ar
+- Apex amandesub.com.ar → www: configurar redirect en Cloudflare
+  (SSL/TLS o Bulk Redirects). _redirects NO hace redirects a nivel dominio.
+- HTTPS: Full (strict) recomendado.
+
+================================================================================
+3) DESPUÉS DEL DEPLOY — VERIFICACIONES
 ================================================================================
 A. Abrí:
    https://www.amandesub.com.ar/
-   https://amandesub.com.ar/          → debe redirigir 301 a https://www...
-   https://www.amandesub.com.ar/sitemap.xml  → debe verse el XML (NO error 500)
+   https://amandesub.com.ar/          → 301 a https://www... (DNS/CF)
+   https://www.amandesub.com.ar/sitemap.xml
    https://www.amandesub.com.ar/robots.txt
    https://www.amandesub.com.ar/contacto/
    https://www.amandesub.com.ar/personaliza-tu-producto/
 
-B. Si sitemap.xml sigue en 500:
-   - Confirmá que el archivo se subió a la raíz
-   - En cPanel, evitá reglas viejas de Tienda Nube que intercepten .xml
-   - El .htaccess ya fuerza MIME application/xml para .xml
-
-C. Probá un redirect viejo → shop, por ejemplo:
+B. Redirect SEO → shop:
    https://www.amandesub.com.ar/productos/mate-personalizado/
-   debe ir a https://shop.amandesub.com.ar/productos/mate-personalizado/
+   → https://shop.amandesub.com.ar/productos/mate-personalizado/
 
 ================================================================================
-3) GOOGLE SEARCH CONSOLE (obligatorio)
+4) GOOGLE SEARCH CONSOLE (obligatorio)
 ================================================================================
-1. Verificá la propiedad https://www.amandesub.com.ar/ (y si podés, también shop).
+1. Verificá https://www.amandesub.com.ar/ (y si podés, también shop).
 2. Envíá el sitemap: https://www.amandesub.com.ar/sitemap.xml
-3. Usá “Inspección de URLs” en las páginas nuevas y pedí indexación.
-4. Revisá “Páginas” / 404: las URLs viejas de productos en www deberían
-   aparecer como redireccionadas (301), no como 404.
+3. Pedí indexación de las páginas nuevas.
+4. Revisá 404: URLs viejas de productos en www deben figurar como 301.
 
 ================================================================================
-4) TIENDA NUBE (obligatorio para no diluir SEO)
+5) TIENDA NUBE (obligatorio para no diluir SEO)
 ================================================================================
 1. Dominio primario de la tienda = shop.amandesub.com.ar
-   (los canonical y schema NO deben apuntar a www).
-2. En el tema/menú de la tienda, linkeá a:
-   https://www.amandesub.com.ar/  (sitio institucional / quiénes somos)
-3. Revisá titles y meta descriptions de categorías clave:
-   Personalizá tu producto, Deco/Hogar, etc.
-4. En GSC de shop: enviá el sitemap que genera Tienda Nube.
+   (canonicals/schema NO deben apuntar a www).
+2. En el tema/menú, linkeá a https://www.amandesub.com.ar/
+3. Revisá titles/meta de categorías clave.
+4. En GSC de shop: enviá el sitemap de Tienda Nube.
 
 ================================================================================
-5) GOOGLE ANALYTICS 4
+6) GOOGLE ANALYTICS 4
 ================================================================================
-1. Creá una propiedad GA4 y copiá el Measurement ID (G-XXXXXXXXXX).
-2. Editá UN solo archivo: assets/analytics-config.js
+1. Creá GA4 y copiá el Measurement ID (G-XXXXXXXXXX).
+2. Editá assets/analytics-config.js:
      window.AMANDE_GA4_ID = "G-ABC123XYZ";
-3. Eventos automáticos al hacer click:
-   - cta_shop (enlaces a shop.amandesub.com.ar)
-   - cta_whatsapp (enlaces a wa.me)
+3. Eventos: cta_shop y cta_whatsapp (clicks a shop / wa.me).
 
 ================================================================================
-6) REDES (recomendado)
+7) REDES (recomendado)
 ================================================================================
-- AMANDE no tiene local físico de atención al público: no publiques dirección
-  en Google Business Profile ni en redes.
-- Contacto público: WhatsApp +54 11 2507-8414 · amande.subli@gmail.com
-- Instagram bio → https://www.amandesub.com.ar/ (no solo shop)
+- Sin local físico: no publiques dirección en Google Business ni redes.
+- Contacto: WhatsApp +54 11 2507-8414 · amande.subli@gmail.com
+- Instagram bio → https://www.amandesub.com.ar/
 
 ================================================================================
-7) ESTRUCTURA DEL SITIO
+8) ESTRUCTURA DEL SITIO
 ================================================================================
 /                              Home institucional
 /regalos-personalizados/       Intención comercial regalos
-/impresion-3d/                 Intención impresión 3D / deco
+/impresion-3d/                 Impresión 3D / deco
 /regalos-empresas/             B2B / merchandising (CTA WhatsApp)
 /personaliza-tu-producto/      Recupera URL indexada + embudo a shop
 /nosotros/                     Confianza (ex /mas/quienes-somos1/)
@@ -95,10 +95,9 @@ Compras: shop.amandesub.com.ar
 Consultas a medida / empresas: WhatsApp +54 11 2507-8414
 
 ================================================================================
-8) NOTAS
+9) NOTAS
 ================================================================================
 - HTML/CSS/JS sin build. CSS: assets/site.css · JS: assets/site.js
-- Rutas relativas (assets/... y ../assets/...) para que funcione al abrir
-  index.html en el navegador o con: python3 -m http.server
-- No se incluyen precios (los administra Tienda Nube).
-- Schema: Organization (online), sin dirección de calle. áreaServida: Buenos Aires / Argentina.
+- Rutas relativas para preview local de archivos.
+- Schema: Organization (online), áreaServida Buenos Aires / Argentina.
+- .htaccess ya no se usa (era Apache); los 301 viven en _redirects.
