@@ -1,0 +1,18 @@
+# No subir como assets públicos (Cloudflare Workers)
+.git
+.git/**
+.cursor
+.cursor/**
+node_modules
+node_modules/**
+wrangler.jsonc
+wrangler.toml
+README.txt
+package.json
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+*.md
+.DS_Store
+.env
+.env.*
